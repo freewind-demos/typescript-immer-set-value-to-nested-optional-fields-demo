@@ -1,18 +1,10 @@
-TypeScript Hello World Demo
+TypeScript Immer Demo
 ===========================
+
+`immer`可以让我们使用修改一个object的形式来生成一个新的immutable的对象，非常神奇。
 
 ```
 npm install
 npm run demo
-```
-
-Note:
-
-`esModuleInterop` is recommended to set to `true`,
-since we can have consistent importing syntax with babel,
-always use:
-
-```
-import some from 'some'
 ```
 
