@@ -1,22 +1,23 @@
 import produce from "immer"
 
-type State = {
-  name: string,
-  age: number,
+type FormState = {
+  aaa?: {
+    bbb?: {
+      ccc?: number
+    }
+  }
 }
 
-const names: State[] = [{
-  name: 'immer',
-  age: 1
-}];
+const formState: FormState = {}
 
-const newState = produce(names, draft => {
-  draft[0].age = 66;
-  draft.push({
-    name: 'new-name',
-    age: 100
-  });
+const target = produce(formState, draft => {
+
+  // compilation error
+  // draft?.aaa?.bbb?.ccc = 1;
+
+  draft.aaa = draft.aaa ?? {}
+  draft.aaa.bbb = draft.aaa.bbb ?? {}
+  draft.aaa.bbb.ccc = 1;
 })
 
-console.log(names);
-console.log(newState);
+console.log(target);
